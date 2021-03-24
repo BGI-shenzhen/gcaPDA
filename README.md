@@ -27,7 +27,7 @@ Before running gcaPDA, please install the following softwares. </br>
 ```
       .  /opt/Anaconda/Anaconda2/anaconda2/bin/activate
       source activate pb-assembly
-      fc_run fc_run_maize.cfg (replace with configure file)
+      fc_run [fc_run_maize.cfg](doc/fc_run_maize.cfg)
 ```
     Run Juicer and 3d-dna (Hi-C scaffolding)
       python juicer/misc/generate_site_positions.py $enzyme  Maize.p_ctg.fa  Maize.p_ctg.fa
@@ -61,7 +61,7 @@ Before running gcaPDA, please install the following softwares. </br>
       cut -f XX,XX,XX --complement genotype.matrix >genotype.removeLowQ.matrix.txt  (XX,XX refers to column number of failed cells)
     reconstruction of chromosome-scale haplotypes
       Rscript --vanilla RunHapi.R -f genotype.removeLowQ.matrix.txt  -o genotype.removeLowQ.matrix.txt.out.txt
-      Rscript --vanilla draw.R -m  genotype.removeLowQ.matrix.txt.out.txt   -c Cen.txt
+      Rscript --vanilla draw.R -m  genotype.removeLowQ.matrix.txt.out.txt   -c [Cent.txt](doc/Cent.txt)
 
 ##############  Part III. partition and normalization of gamete cell ##############
 
