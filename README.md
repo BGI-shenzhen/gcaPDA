@@ -92,7 +92,7 @@ Before running gcaPDA, please install the following softwares. </br>
       using sample S1 as an example:
       cut -f $CHROM,$POS,$S1,$hap1,$hap2 genotype.removeLowQ.matrix.txt.out.txt >S1.txt
       perl BlockOrigin.pl S1.block S1.txt (it will output files: S1.block.hap1 and S1.block.hap2)
->> An example of [Chr.len](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/Chr.Len)      
+>> An example of [Chr.Len](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/Chr.Len)      
 - Extracting gamete reads according to haplotype blocks (using sample S1 as an example):
     
       samtools view -h -L S1.block.hap1 S1.bam | samtools view -h  -bS - >S1.hap1.bam 
