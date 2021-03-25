@@ -1,5 +1,8 @@
 # gcaPDA
-Gamete cell assisted chromosome-scale phased diploid assembler
+Gamete cell assisted chromosome-scale phased diploid assembler.  
+Below is the analysis flowchart of gcaPDA.  
+
+![flowchart](./files/flowchart.png)
 
 
 ## Installation
@@ -30,7 +33,7 @@ Before running gcaPDA, please install the following softwares. </br>
 
       .  /opt/Anaconda/Anaconda2/anaconda2/bin/activate
       source activate pb-assembly
-      fc_run fc_run_maize.cfg  (./files/fc_run_maize.cfg)
+      fc_run [fc_run_maize.cfg](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/fc_run_maize.cfg)
 
 - Run Juicer and 3d-dna (Hi-C scaffolding)
     
