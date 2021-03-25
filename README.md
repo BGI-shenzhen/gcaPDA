@@ -62,7 +62,7 @@ Before running gcaPDA, please install the following softwares. </br>
        bcftools call -o maizeF1.call.bcf -Ob -cv -p 0.01 maizeF1.bcf
        bcftools filter -e '%QUAL<20 || INFO/AF1 <0.3 || INFO/AF1 >0.7' -g 5  -Ov maizeF1.call.bcf |grep -v INDEL |awk '$5!~/,/' >maizeF1.filter.vcf
     
-- Gamete cell QC:
+- Gamete cell quality control:
 
       perl SNPStatv2.pl maizeF1.filter.vcf $depth_cutoff >maizeF1.filter.vcf.stat
       Rscript SNPStatPlot.R -f maizeF1.filter.vcf.stat
@@ -70,7 +70,7 @@ Before running gcaPDA, please install the following softwares. </br>
       perl extractAndReformat.pl  maizeF1.filter.vcf 5 >genotype.matrix
       cut -f XX,XX,XX --complement genotype.matrix >genotype.removeLowQ.matrix.txt  (XX,XX refers to column number of failed cells)
       
-- reconstruction of chromosome-scale haplotypes
+- Reconstruction of chromosome-scale haplotypes
     
       Rscript --vanilla RunHapi.R -f genotype.removeLowQ.matrix.txt  -o genotype.removeLowQ.matrix.txt.out.txt
       Rscript --vanilla draw.R -m  genotype.removeLowQ.matrix.txt.out.txt   -c [Cent.txt](./files/Cent.txt)
@@ -93,12 +93,12 @@ Before running gcaPDA, please install the following softwares. </br>
       samtools view -h -L S1.block.hap1 S1.bam | samtools view -h  -bS - >S1.hap1.bam 
       samtools view -h -L S1.block.hap2 S1.bam | samtools view -h  -bS - >S1.hap2.bam
 
-- Merge haplotype reads:
+- Merging haplotype reads:
     
       samtools merge -@ 4 -b hap1.bam.list  hap1.merged.bam  
       samtools merge -@ 4 -b hap2.bam.list  hap2.merged.bam
       
-- Sort bam file by read names:
+- Sorting bam file by read names:
       
       samtools sort -@ 4 -n -o hap1.merged.sortByName.bam  hap1.merged.bam
       samtools sort -@ 4 -n -o hap2.merged.sortByName.bam  hap2.merged.bam
@@ -117,18 +117,18 @@ Before running gcaPDA, please install the following softwares. </br>
 ### Part IV. generating chromosome-scale phased diploid assembly
 
 
-- Break normalized haplotype reads into k-mers:
+- Breaking normalized haplotype reads into k-mers:
     
       yak  count  -b37 -t32 -o hap1.yak <(cat hap1.40x.read1.fq hap1.40x.read2.fq) <(cat hap1.40x.read1.fq hap1.40x.read2.fq)
       yak  count  -b37 -t32 -o hap2.yak <(cat hap2.40x.read1.fq hap2.40x.read2.fq) <(cat hap2.40x.read1.fq hap2.40x.read2.fq)
 
-- run hifiasm:
+- Running hifiasm:
     
       hifiasm -t 100 -1 hap1.yak  -2 hap2.yak   -o MaizeF1  simulated.B73.HiFi.gz  simulated.SK.HiFi.gz
       awk '/^S/{print ">"$2;print $3}' MaizeF1.hap1.p_ctg.gfa > MaizeF1.hap1.p_ctg.fa
       awk '/^S/{print ">"$2;print $3}' MaizeF1.hap2.p_ctg.gfa > MaizeF1.hap2.p_ctg.fa
       
-- Run Juicer and 3d-DNA (Hi-C scaffolding) as described in Part I.
+- Running Juicer and 3d-DNA (Hi-C scaffolding) as described in Part I.
     
       run juicer and 3d-DNA using MaizeF1.hap1.p_ctg.fa as input
       run juicer and 3d-DNA using MaizeF1.hap2.p_ctg.fa as input
