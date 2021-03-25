@@ -58,9 +58,9 @@ Before running gcaPDA, please install the following softwares. </br>
    
  - SNP calling and filtering:
     
-      bcftools mpileup -b bam.list  -d 500 -f  initial.ref.fa   -q 10 --ff SECONDARY -a AD,ADF,ADR,DP,SP  -Ob -o maizeF1.bcf
-      bcftools call -o maizeF1.call.bcf -Ob -cv -p 0.01 maizeF1.bcf
-      bcftools filter -e '%QUAL<20 || INFO/AF1 <0.3 || INFO/AF1 >0.7' -g 5  -Ov maizeF1.call.bcf |grep -v INDEL |awk '$5!~/,/' >maizeF1.filter.vcf
+        bcftools mpileup -b bam.list  -d 500 -f  initial.ref.fa   -q 10 --ff SECONDARY -a AD,ADF,ADR,DP,SP  -Ob -o maizeF1.bcf
+        bcftools call -o maizeF1.call.bcf -Ob -cv -p 0.01 maizeF1.bcf
+        bcftools filter -e '%QUAL<20 || INFO/AF1 <0.3 || INFO/AF1 >0.7' -g 5  -Ov maizeF1.call.bcf |grep -v INDEL |awk '$5!~/,/' >maizeF1.filter.vcf
     
 - Gamete cell QC:
 
