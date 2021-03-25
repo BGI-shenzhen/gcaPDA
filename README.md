@@ -11,7 +11,7 @@ Below is the analysis flowchart of gcaPDA.
 
 ### Prerequisites
 
-Before running gcaPDA, please install the following softwares. </br>
+Before running gcaPDA, please install the following softwares.  
 
     R(v3.4.3): require packages: optparse, HMM,Hapi, etc.
     FALCON/pb-assembly(falcon-kit 1.4.4): https://github.com/PacificBiosciences/pb-assembly 
@@ -35,7 +35,7 @@ Before running gcaPDA, please install the following softwares. </br>
       .  /opt/Anaconda/Anaconda2/anaconda2/bin/activate
       source activate pb-assembly
       fc_run fc_run_maize.cfg
-&nbsp;&nbsp;&nbsp;&nbsp;An example of [fc_run_maize.cfg](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/fc_run_maize.cfg)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of [fc_run_maize.cfg](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/fc_run_maize.cfg)
 - Run Juicer and 3d-dna (Hi-C scaffolding)
     
       python juicer/misc/generate_site_positions.py $enzyme  Maize.p_ctg.fa  Maize.p_ctg.fa
@@ -64,7 +64,7 @@ Before running gcaPDA, please install the following softwares. </br>
        bcftools mpileup -b bam.list  -d 500 -f  initial.ref.fa   -q 10 --ff SECONDARY -a AD,ADF,ADR,DP,SP  -Ob -o maizeF1.bcf
        bcftools call -o maizeF1.call.bcf -Ob -cv -p 0.01 maizeF1.bcf
        bcftools filter -e '%QUAL<20 || INFO/AF1 <0.3 || INFO/AF1 >0.7' -g 5  -Ov maizeF1.call.bcf |grep -v INDEL |awk '$5!~/,/' >maizeF1.filter.vcf
->> An example of [bam.list](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/bam.list)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of [bam.list](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/bam.list)
 - Gamete cell quality control:
 
       perl SNPStatv2.pl maizeF1.filter.vcf $depth_cutoff >maizeF1.filter.vcf.stat
@@ -91,7 +91,7 @@ Before running gcaPDA, please install the following softwares. </br>
       using sample S1 as an example:
       cut -f $CHROM,$POS,$S1,$hap1,$hap2 genotype.removeLowQ.matrix.txt.out.txt >S1.txt
       perl BlockOrigin.pl S1.block S1.txt (it will output files: S1.block.hap1 and S1.block.hap2)
->> An example of [Chr.Len](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/Chr.Len)      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An example of [Chr.Len](https://github.com/BGI-shenzhen/gcaPDA/tree/main/files/Chr.Len)      
 - Extracting gamete reads according to haplotype blocks (using sample S1 as an example):
     
       samtools view -h -L S1.block.hap1 S1.bam | samtools view -h  -bS - >S1.hap1.bam 
