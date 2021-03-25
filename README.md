@@ -1,10 +1,10 @@
 # gcaPDA
+
 Gamete cell assisted chromosome-scale phased diploid assembler.  
 Below is the analysis flowchart of gcaPDA.  
 
 ![flowchart](./files/flowchart.png)
 
-------
 
 ## Installation
 
@@ -26,7 +26,6 @@ Before running gcaPDA, please install the following softwares. </br>
     hifiasm: https://github.com/chhylp123/hifiasm 
   
 
-------
 ## Step by step analysis command  
 
 ### Part I. building an initial assembly 
@@ -138,7 +137,7 @@ Before running gcaPDA, please install the following softwares. </br>
       run juicer and 3d-DNA using MaizeF1.hap1.p_ctg.fa as input
       run juicer and 3d-DNA using MaizeF1.hap2.p_ctg.fa as input
   
-------
+
 ## Citation  
 
 To be determined
