@@ -28,9 +28,9 @@ Before running gcaPDA, please install the following softwares. </br>
 
     Run FALCON/pb-assembly(using HiFi reads as input):
 
-      .  /opt/Anaconda/Anaconda2/anaconda2/bin/activate
-      source activate pb-assembly
-      fc_run ![fc_run_maize.cfg](./files/fc_run_maize.cfg)
+   >   .  /opt/Anaconda/Anaconda2/anaconda2/bin/activate
+   >   source activate pb-assembly
+   >   fc_run ![fc_run_maize.cfg](./files/fc_run_maize.cfg)
 
     Run Juicer and 3d-dna (Hi-C scaffolding)
     
