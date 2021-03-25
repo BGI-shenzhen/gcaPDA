@@ -2,7 +2,7 @@
 Gamete cell assisted chromosome-scale phased diploid assembler.  
 Below is the analysis flowchart of gcaPDA.  
 
-![flowchart](./files/flowchart.png)
+![flowchart](./files/flowchart.png=150x)
 
 
 ## Installation
