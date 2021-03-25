@@ -4,12 +4,13 @@ Below is the analysis flowchart of gcaPDA.
 
 ![flowchart](./files/flowchart.png =100x20)
 
+------
 
 ## Installation
 
 
 ### Prerequisites
-------
+
 Before running gcaPDA, please install the following softwares. </br>
 
     R(v3.4.3): require packages: optparse, HMM,Hapi, etc.
@@ -24,8 +25,9 @@ Before running gcaPDA, please install the following softwares. </br>
     yak: https://github.com/lh3/yak
     hifiasm: https://github.com/chhylp123/hifiasm 
   
-## Step by step analysis command  
 
+------
+## Step by step analysis command  
 
 ### Part I. building an initial assembly 
 
@@ -136,6 +138,7 @@ Before running gcaPDA, please install the following softwares. </br>
       run juicer and 3d-DNA using MaizeF1.hap1.p_ctg.fa as input
       run juicer and 3d-DNA using MaizeF1.hap2.p_ctg.fa as input
   
+------
 ## Citation  
 
 To be determined
