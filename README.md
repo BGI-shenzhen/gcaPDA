@@ -143,4 +143,8 @@ Before running gcaPDA, please install the following softwares.
 
 ## Citation  
 
-To be determined
+To be determined  
+
+## Copyright
+
+gcaPDA is freely available for academic use and other non-commercial use.
